@@ -3,7 +3,7 @@
   "name": "Simple healthcheck",
   "documentation": "https://github.com/bkupidura/hass-simple-healthcheck",
   "dependencies": [],
-  "codeowners": ["@bkupidura"],
+  "codeowners": ["@mbegenau"],
   "requirements": [],
   "iot_class": "calculated",
   "version": "0.0.1"
