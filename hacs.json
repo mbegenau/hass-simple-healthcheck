@@ -2,5 +2,8 @@
     "name": "Simple healthcheck",
     "homeassistant": "2022.07.1",
     "iot_class": "calculated",
-    "render_readme": false
+    "render_readme": false,
+    "domains" : [
+        "simple_healthcheck"
+    ]
 }
