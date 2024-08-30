@@ -69,10 +69,11 @@ class HealthCheckView(HomeAssistantView):
         """ :type: HomeAssistant """
         hass: ha.HomeAssistant = request.app["hass"]
 
-        if hass.state != CoreState.running:
+        if not hass.is_running:
             return self.json({"healthy": False}, HTTPStatus.SERVICE_UNAVAILABLE)
 
-        if not recorder.get_instance(hass).async_recorder_ready.is_set():
+        recorder_instance = recorder.get_instance(hass)
+        if not recorder_instance.async_recorder_ready.is_set() or not recorder_instance.migration_in_progress:
             return self.json({"healthy": False, "db": "Not ready"}, HTTPStatus.SERVICE_UNAVAILABLE)
 
         return self.json({"healthy": True})
